@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+//** VARIABLES ================================= **//
+$mainColor: #000;  // 文字色
+$red: #FF2A2A;
+$gray: #E8E8E8;
+
+//** mixin ===================================== **//
+@mixin flexMode($justify) {
+    display: flex;
+    justify-content: $justify;
+    align-items: center;
+}
+
+/*
+Common class for setting width
+================================================ */
+
+
+/*
+COMMON
+================================================ */
+* {
+    box-sizing: border-box; 
+}
+html { 
+    font-size: 100%; 
+}
+body { 
+    font-family: 游ゴシック体, YuGothic, "游ゴシック Medium", "Yu Gothic Medium", 游ゴシック, "Yu Gothic", メイリオ, sans-serif; 
+    color: $mainColor; 
+}
+img { 
+    max-width: 100%; 
+    vertical-align: bottom; 
+}
+li { 
+    list-style: none; 
+}
+a { 
+    text-decoration: none; 
+}
+
+/* レスポンシブ・ブレークポイント900px
+------------------------------- */
+/*-------------------------------------------
+
+-------------------------------------------*/

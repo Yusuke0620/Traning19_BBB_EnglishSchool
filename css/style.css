@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/*
+Common class for setting width
+================================================ */
+/*
+COMMON
+================================================ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: 游ゴシック体, YuGothic, "游ゴシック Medium", "Yu Gothic Medium", 游ゴシック, "Yu Gothic", メイリオ, sans-serif;
+  color: #000;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* レスポンシブ・ブレークポイント900px
+------------------------------- */
+/*-------------------------------------------
+
+-------------------------------------------*/
