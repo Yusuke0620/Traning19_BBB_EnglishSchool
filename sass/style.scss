@@ -87,15 +87,69 @@ button {
 #home
 -------------------------------------------*/
 #home {
-    height: 720px;
-    position: relative;
+    height   : 720px;    /* ホームセクションの高さを設定 */  
+    position : relative; /* 相対位置を設定 */
+
+/* 画像フェードインアニメーション */
+    .fade {
+        li {
+            width   : 75%;      /* 画像の幅を設定 */
+            position: absolute; /* 絶対位置を設定 */
+            top     : 0;        /* 上端に配置 */
+            right   : 0;        /* 右端に配置 */
+            opacity : 0;        /* 最初は不透明度を0に設定 */
+            animation: fade 15s infinite; /* fadeアニメーションを15秒ごとに無限に繰り返し実行 */
+
+            /* 画像ごとにアニメーション遅延を設定 */
+            &:nth-child(1) {
+                animation-delay : 0s;  /* 1番目の画像の遅延時間を0秒に設定 */
+            }
+            &:nth-child(2) {
+                animation-delay : 5s;  /* 2番目の画像の遅延時間を5秒に設定 */
+            }
+            &:nth-child(3) {
+                animation-delay : 10s; /* 3番目の画像の遅延時間を10秒に設定 */
+            }
+
+            /* 画像のサイズを調整 */
+            img {
+                width      : 100%;
+                height     : 720px;
+                object-fit : cover; /* 画像を領域に合わせて調整 */
+            }
+
+            /* 画像に影を追加 */
+            &::after {
+                content    : "";       /* 疑似要素を生成 */
+                position   : absolute; /* 絶対位置を設定 */
+                top        : 0;        /* 上端に配置 */
+                bottom     : 0;        /* 下端に配置 */
+                left       : 0;        /* 左端に配置 */
+                right      : 0;        /* 右端に配置 */
+                box-shadow : inset 0px 0px 20px 20px #fff; /* 影を追加 */
+            }
+          }
+        }
+
+        /* 画像フェードインアニメーションのキーフレーム */
+        @keyframes fade {
+            0% { opacity: 0;} /* 非表示の状態からスタート */
+            5% { opacity: 1;} /* 15%になるまでの間に少しづつ画像を表示（フェードイン）させる */
+           30% { opacity: 1;} /* そこから30%の時点までは画像を表示させたままの状態を維持し */
+           45% { opacity: 0;} /* 45%の時点に向けて画像を非表示（フェードアウト）する */
+          100% { opacity: 0;} /* そこから100%まで非表示の状態を維持する */
+        }
+
+
+/* アニメションここまで */
+
 
     .home-title-contents {
-        position: absolute;
-        content: "";
-        top: 300px;
+        position : absolute;
+        content  : "";
+        top      : 300px;
         max-width: 100%;
-        padding: 0 10%;
+        padding  : 0 10%;
 
         h2.page-title {
            font-size: 2.875rem; 
@@ -134,6 +188,7 @@ button {
         }
     }
 }
+
 
 /*-------------------------------------------
 #choice
