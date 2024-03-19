@@ -216,6 +216,7 @@ button {
         background-color: #fff;
         padding: 5% 0;
         margin: 20px 0;
+        opacity: 0;
         &:nth-of-type(1) {
             border-radius: 0 20px 20px 0;
         }
@@ -261,6 +262,7 @@ button {
             align-items: start;
             margin-top: 72px;
             width: 100%;
+            opacity: 0; /* JavaScriptのアニメーションで表示される */
             &:nth-of-type(2) {
                 flex-direction: row-reverse;
                 justify-content: end;

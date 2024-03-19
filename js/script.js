@@ -17,52 +17,50 @@ const itemsRight = document.querySelector('.online-native-items:nth-of-type(2)')
 
 // 左から右へのスライド
 const showSlideLeft = (entries, obs) => {
-    const keyframes = {
-        opacity: [0, 1],
-        translate: ['-50vw 0', 0],
-    };
-    const options = {
-        duration: 600,
-        fill: 'forwards',
-    };
-    entries[0].target.animate(keyframes, options);
-    // 一度動作されたら停止する
-    obs.unobserve(itemsLeft);
+    entries.forEach (entry => {
+        if (entry.isIntersecting) {
+            const keyframes = {
+                opacity: [0, 1],
+                translate: ['-50vw 0', 0],
+            };
+            const options = {
+                duration: 600,
+                fill: 'forwards',
+            };
+            entry.target.animate(keyframes, options);
+            // 一度動作されたら停止する
+            obs.unobserve(itemsLeft);
+        }
+    });
 };
-
 // 監視ロボの設定
 const showSlideLeftObserver = new IntersectionObserver(showSlideLeft);
-
 // 監視ロボに監視対象を教えて実行する
 showSlideLeftObserver.observe(itemsLeft);
 
 
 // 右から左へのスライド
 const showSlideRight = (entries, obs) => {
-    const keyframes = {
-        opacity: [0, 1],
-        translate: ['50vw 0', 0],
-    };
-    const options = {
-        duration: 600,
-        fill: 'forwards',
-    };
-    entries[0].target.animate(keyframes, options);
-    // 一度動作されたら停止する
-    obs.unobserve(itemsRight);
-
+    entries.forEach (entry => {
+        if (entry.isIntersecting) {
+            const keyframes = {
+                opacity: [0, 1],
+                translate: ['+50vw 0', 0],
+            };
+            const options = {
+                duration: 600,
+                fill: 'forwards',
+            };
+            entry.target.animate(keyframes, options);
+            // 一度動作されたら停止する
+            obs.unobserve(itemsRight);
+        }
+    });
 };
-
 // 監視ロボの設定
-const showSlideObserver = new IntersectionObserver(showSlideRight);
-
+const showSlideRightObserver = new IntersectionObserver(showSlideRight);
 // 監視ロボに監視対象を教えて実行する
-showSlideObserver.observe(itemsRight);
-
-
-
-
-
+showSlideRightObserver.observe(itemsRight);
 
 
 /*-------------------------------------------
@@ -79,28 +77,28 @@ showSlideObserver.observe(itemsRight);
 //定数に代入してコンパクトにさせる
 const profiles = document.querySelectorAll('.profile');
 
-//プロフィールを全て繰り返す
-for (let i = 0; i < profiles.length; i++) {
+const zoomUp = (entries, obs) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
 
-    //
-    const showHover = (entries, obs) => {
-        const keyframes = {
-            opacity: [0, 1],
-            scale: [0, 1],
-        };
+            entry.target.animate (
+                {
+                opacity: [0, 1],
+                scale: [0 ,1],
+                },
+                {
+                    duration: 500,
+                    fill: 'forwards',
+                }
+            );
+            obs.unobserve(entry.target);
+        }
+    });
+};
 
-        entries[i].target.animate(keyframes, 500);
-        obs.unobserve(profile);
-    };
-}
-
-
-
-
-
-// 監視ロボの設定
-const scaleObserver = new IntersectionObserver(showHover);
-
-// 監視ロボに監視対象を教えて実行する
-scaleObserver.observe(profile);
-
+//監視ロボ
+const zoomUpObserver = new IntersectionObserver(zoomUp);
+//監視要素を指定
+profiles.forEach((profile) => {
+    zoomUpObserver.observe(profile);
+});
