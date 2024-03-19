@@ -30,25 +30,25 @@ Common class for setting width
 COMMON
 ================================================ */
 * {
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
-html { 
-    font-size: 100%; 
+html {
+    font-size: 100%;
 }
-body { 
+body {
     font-family: 游ゴシック体, YuGothic, "游ゴシック Medium", "Yu Gothic Medium", 游ゴシック, "Yu Gothic", メイリオ, sans-serif;
     letter-spacing: 2px;
-    color: $mainColor; 
+    color: $mainColor;
 }
-img { 
-    max-width: 100%; 
-    vertical-align: bottom; 
+img {
+    max-width: 100%;
+    vertical-align: bottom;
 }
-li { 
-    list-style: none; 
+li {
+    list-style: none;
 }
-a { 
-    text-decoration: none; 
+a {
+    text-decoration: none;
 }
 p {
     text-align: left;
@@ -60,7 +60,7 @@ button {
     font-size: 2.25rem;
     font-weight: 700;
     display: inline-block;
-    position: relative;   
+    position: relative;
     &::after {
         position: absolute;
         content: "";
@@ -70,7 +70,7 @@ button {
         height: 3px;
         width: 100px;
         background-color: $mainColor;
-    }  
+    }
 }
 /*-------------------------------------------
 #header
@@ -87,7 +87,7 @@ button {
 #home
 -------------------------------------------*/
 #home {
-    height   : 720px;    /* ホームセクションの高さを設定 */  
+    height   : 720px;    /* ホームセクションの高さを設定 */
     position : relative; /* 相対位置を設定 */
 
 /* 画像フェードインアニメーション */
@@ -152,9 +152,9 @@ button {
         padding  : 0 10%;
 
         h2.page-title {
-           font-size: 2.875rem; 
+           font-size: 2.875rem;
            font-weight: 700;
-           text-shadow: 0 5px 5px #fff;          
+           text-shadow: 0 5px 5px #fff;
         }
 
         button {
@@ -189,14 +189,12 @@ button {
     }
 }
 
-
 /*-------------------------------------------
 #choice
 -------------------------------------------*/
 #choice {
-    background-color: orange;
     text-align: center;
-    padding: 80px 0;
+    padding: 115px 0 105px;
 }
 
 /*-------------------------------------------
@@ -207,7 +205,7 @@ button {
     padding: 60px 0;
 
     .online-native-left,
-    .online-native-right {        
+    .online-native-right {
         width: 100%;
         display: flex;
     }
@@ -217,7 +215,7 @@ button {
         width: 50%;
         background-color: #fff;
         padding: 5% 0;
-        margin: 20px 0;        
+        margin: 20px 0;
         &:nth-of-type(1) {
             border-radius: 0 20px 20px 0;
         }
@@ -261,31 +259,31 @@ button {
         .profile {
             @include flexMode(start);
             align-items: start;
-            margin-top: 72px;            
+            margin-top: 72px;
             width: 100%;
             &:nth-of-type(2) {
                 flex-direction: row-reverse;
                 justify-content: end;
-                .profile-text:nth-of-type(2)::after {                   
+                .profile-text:nth-of-type(2)::after {
                     left: auto;
-                    right: -10px;                    
+                    right: -10px;
                 }
             }
-    
+
             .profile-img {
                 @include flexMode(space-between);
-                flex-direction: column;    
+                flex-direction: column;
                 img {
                     background-color: #CCCCCC;
                     border-radius: 50%;
                     height: 120px;
-                    margin-bottom: 10px;                    
+                    margin-bottom: 10px;
                 }
                 span {
                     font-size: 0.75rem;
                 }
             }
-    
+
             .profile-text {
                 background-color: #E9F1FB;
                 width: 60%;
@@ -296,20 +294,31 @@ button {
                 &::after {
                     position: absolute;
                     content: "";
-                    top: 90px;                    
+                    top: 90px;
                     left: -10px;
                     height: 20px;
                     width: 20px;
                     transform: rotate(45deg);
-                    background-color: #E9F1FB;    
-                }    
+                    background-color: #E9F1FB;
+                }
                 p {
                     text-align: justify;
                     letter-spacing: 1.5px;
                 }
             }
         }
-    }    
+    }
+}
+
+/* JavaScript拡大アニメーション */
+.scale-in {
+    transition: transform .5s ease;
+    transform: scale(0); /* 何もない状態 */
+}
+
+/* 監視対象に入った際に適用されるクラス */
+.scale-in-visible {
+    transform: scale(1); /* 通常のサイズ */
 }
 
 /*-------------------------------------------
@@ -326,7 +335,7 @@ button {
         justify-content: space-between;
         flex-wrap: wrap;
         align-content: space-between;
-        margin-top: 100px;        
+        margin-top: 100px;
 
         .summary-item {
             width: 48%;
@@ -372,9 +381,9 @@ button {
     text-align: center;
     padding: 123px 0 120px;
 
-    .section-title {        
+    .section-title {
         font-size: 2rem;
-        &::after {            
+        &::after {
             content: none;
         }
     }
@@ -453,6 +462,6 @@ button {
     #free-trail,
     .inner {
         padding: 0 15px;
-    }    
+    }
 }
 

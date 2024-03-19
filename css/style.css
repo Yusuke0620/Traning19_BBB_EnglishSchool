@@ -183,9 +183,8 @@ button {
 #choice
 -------------------------------------------*/
 #choice {
-  background-color: orange;
   text-align: center;
-  padding: 80px 0;
+  padding: 115px 0 105px;
 }
 
 /*-------------------------------------------
@@ -297,6 +296,17 @@ button {
 #voice .voice-contents .profile .profile-text p {
   text-align: justify;
   letter-spacing: 1.5px;
+}
+
+/* JavaScript拡大アニメーション */
+.scale-in {
+  transition: transform 0.5s ease;
+  transform: scale(0); /* 何もない状態 */
+}
+
+/* 監視対象に入った際に適用されるクラス */
+.scale-in-visible {
+  transform: scale(1); /* 通常のサイズ */
 }
 
 /*-------------------------------------------
