@@ -102,3 +102,24 @@ const zoomUpObserver = new IntersectionObserver(zoomUp);
 profiles.forEach((profile) => {
     zoomUpObserver.observe(profile);
 });
+
+/*-------------------------------------------
+#summary  背景画像の無限スクロール
+-------------------------------------------*/
+// ⇩解説note
+// https://note.com/index_html_css/n/n2a2b0d775d6f
+
+const bgImg = document.getElementById('summary'); //親要素取得
+let positionX = 0; // X方向の位置初期値
+let positionY = 0; // Y方向の位置初期値
+const speed = 1; // スクロールの速度
+
+const scrollBackground = () => {
+
+  positionX -= speed; // 左方向にスクロールするため減算
+  positionY += speed; // 下方向にスクロールするため加算
+  bgImg.style.backgroundPosition = `${positionX}px ${positionY}px`;
+  requestAnimationFrame(scrollBackground); // 毎秒60回アニメーションを呼び出し更新
+}
+
+scrollBackground();

@@ -326,11 +326,11 @@ button {
 /*-------------------------------------------
 #summary
 -------------------------------------------*/
+
 #summary {
-    background-color: $gray;
+    background: url("../images/bg.gif") repeat;
     text-align: center;
     padding: 60px 0;
-
 
     .summary-items {
         display: flex;

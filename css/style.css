@@ -315,7 +315,7 @@ button {
 #summary
 -------------------------------------------*/
 #summary {
-  background-color: #E8E8E8;
+  background: url("../images/bg.gif") repeat;
   text-align: center;
   padding: 60px 0;
 }
