@@ -68,6 +68,123 @@ button {
   background-color: rgb(51, 51, 51);
 }
 
+/*
+メニュー
+================================================ */
+/* 開閉ボタン */
+#menu-open {
+  position: relative;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100px;
+  width: 100px;
+  z-index: 9999;
+  transition: opacity 0.3s ease-in-out;
+  /*-------------------------------------------
+  ハンバーガーメニューのアイコン線
+  -------------------------------------------*/
+  /* 平時の位置 */
+  /* クリック時に横アイコンが斜めになる */
+}
+#menu-open:hover {
+  opacity: 0.7;
+}
+#menu-open span {
+  display: inline-block;
+  position: absolute;
+  left: 25%;
+  right: 25px;
+  background-color: #fff;
+  height: 2px;
+  max-width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+#menu-open span:nth-of-type(1) {
+  top: 35px;
+}
+#menu-open span:nth-of-type(2) {
+  top: 50px;
+}
+#menu-open span:nth-of-type(3) {
+  top: 65px;
+}
+#menu-open.active span:nth-of-type(1) {
+  top: 40px;
+  transform: translateY(6px) rotate(-45deg);
+  max-width: 50%;
+}
+#menu-open.active span:nth-of-type(2), #menu-open.active span:nth-of-type(3) {
+  top: 40px;
+  transform: translateY(6px) rotate(45deg);
+  max-width: 50%;
+}
+
+/* スライドメニューパネル */
+nav {
+  text-align: center;
+}
+nav #menu-panel {
+  position: relative;
+  position: fixed;
+  z-index: 9;
+  inset: 0;
+  background-color: #FF2A2A;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.7s, visibility 0.7s;
+  /* パネル内のボタン */
+}
+nav #menu-panel .slide-logo {
+  width: 100px;
+  position: absolute;
+  content: "";
+  top: 40px;
+  left: 50px;
+}
+nav #menu-panel .menu-list {
+  margin-top: 80px;
+}
+nav #menu-panel .menu-list li {
+  margin-bottom: 20px;
+}
+nav #menu-panel .menu-list a {
+  color: #fff;
+  font-weight: 700;
+}
+nav #menu-panel button {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-top: 20px;
+  border: 1px solid #fff;
+  padding: 15px 50px;
+  transition: all 0.5s;
+  position: relative;
+  /* 右と下の罫線 */
+  /* ホバー時の白色背景 */
+}
+nav #menu-panel button::after {
+  position: absolute;
+  content: "";
+  bottom: -6px;
+  left: 6px;
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+nav #menu-panel button:hover {
+  color: #FF2A2A;
+  background-color: #fff;
+}
+
+/* ナビ表示・クラスリストトグル */
+#menu-panel.display {
+  opacity: 1;
+  visibility: visible; /* 要素を表示 */
+}
+
 /*-------------------------------------------
 #header
 -------------------------------------------*/

@@ -1,4 +1,23 @@
 /*-------------------------------------------
+#nav メニューアニメーション
+-------------------------------------------*/
+/*
+・#menu-openをクリックしたら#menu-panelが表示される
+※display: block;
+・ハンバーガーアイコンはトグルクラスで開閉状態を固定させる
+・切り替え表示速度はゆっくり
+*/
+const menuOpen  = document.getElementById('menu-open');
+const menuPanel = document.getElementById('menu-panel');
+
+
+menuOpen.addEventListener('click', () => {
+    menuPanel.classList.toggle('display');
+    menuOpen.classList.toggle('active');
+});
+
+
+/*-------------------------------------------
 #online-native 左右スライドアニメーション
 -------------------------------------------*/
 /*
